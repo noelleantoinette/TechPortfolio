@@ -1,1 +1,185 @@
-index
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noelle Wandel - Portfolio</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="portfoliooutline">
+        <h2> Noelle Wandel - Portfolio<br>(There's a technical blog in here also... )</h2>
+        <div class="projects">
+            <div class="projectbox">
+                <h3><a href="http://noelleantoinette.github.io/GameOfLife/">Game Of Life</a></h3>
+                <p>Put your best guess on the grid! Your cells will live or die by the algorithm:
+                    <br></br> 1) Alive cell - Fewer than 2 alive neighbours - dies (underpopulation).
+                    <br>2) Alive cell - 2 or 3 neighbours - continues to live (perfect situation).
+                    <br>3) Alive cell - More than 3 alive neighbours - dies (overpopulation).
+                    <br>4) Dead cell - Exactly three alive neighbours - becomes alive (reproduction).</p>
+            </div>
+            <div class="projectbox">
+                <h3><a href="http://noelleantoinette.github.io/GuessingGame/">Guessing Game</a></h3>
+                <p>Guess a randomly generated number between 1 and 100.
+                    <br> When the guess is very far off, you will be told that you are cold.
+                    <br>The closer the player gets to the correct number, they will be told that they are getter warmer.
+                    <br>You can also request a hint.
+                    <br> </br>Jquery, javascript, css, html used. </p>
+            </div>
+            <div class="projectbox">
+                <h3><a href="http://www.brooklynbuschenschank.com/">Buschenschank Website</a></h3>
+                <p>Freelance project - responsive website for a small business built using Gulp and the MEAN stack. Heroku also used. </p>
+            </div>
+            <div class="projectbox">
+                <h3><a href="http://www.codestream.co/">CodeStream.co</a></h3>
+                <p>Real-time instructional coding application with live updates from instructors and commenting and participation from students.
+                    <br> Works in conjunction with the Codestream Command Line Interface and built-in Sublime plugin, designed for instructor use: <a href="https://github.com/Rmoore424/Codestream-cli">https://github.com/Rmoore424/Codestream-cli</a>
+                    <br> Built with MEAN stack (using FullStack Generator), Github API, Node-Git, and Sublime Text API.</p>
+            </div>
+        </div>
+        <div class="blogoutline">
+            <h3>Blog post 1 - Sorting!</h3>
+            <p>Unravelling all the theory that has been piling into my head!
+                <br></br>
+                To begin my school wind down, I decided that starting with sorting methods would be the best place. This is one of the most commonly misunderstood topics, the big O logarithm representations was probably one the hardest things for me to understand. It’s one of those things that people finally get their head around, and they promptly forget how they misunderstood it in the first place. A fellow student in my class explained it to me in a way that I understood. I will try and pass this on!
+                <br></br>
+                My first barrier was understanding exactly what the ‘log’ part represents. The ‘log’ is the sectioned off portion of the objects that you are searching through. This is commonly interpreted as the search matter as being cut in half, which is what the binary search tree does. However, it can be into as many sections as you designate.
+                <br></br>
+                As far as the ‘Big O’ goes, this represents the longest possible time for the search process in question. It will not will not necessarily take this amount of time to complete. For example with quick sort, which can be (n log(n)) if you choose your pivot well, can also give a (n2) result poorly chosen pivot.
+                <br></br>
+                The ’n’ notation represents the size of the search matter. So for an array, n would be the length of the array. Say that we wanted to sort this array, the worst case scenario would be comparing each element of the array against the whole array - this is n2.
+                <br></br>
+                Now to the explanation as to the different types of search and how to express them in code and logarithm representation! I will also explain how these are expensive in terms of run time and space, so that we can better understand when to apply these search methods. Everyone has seen the graphs as to the run times off all the search methods, but we need to understand what is behind those lines!
+                <br></br>
+                Quick sort - Quick sort partitions the search matter (in place) into sections, using pivots and the two comparison points closing in on it. Correctly chosen pivots are key to success of the time taken with quick sort. Let’s say that we are sorting an array of numbers. With each move in the search process, one of the comparison points will move towards the pivot. Which point moves would depend on which point was on a value higher or lower than the pivot value. The advantages of quick sort are that it takes up only n space during the process. It does not need space to spread out during it’s search process. However, the time for search collisions is represented as O(n2), so it is not stable. Quick sort is fast with a correctly chosen pivot, this is because the expensive part of this process is the actual search-collisions. Worth noting that this is the search method used in array.prototype.sort() method.
+                <br></br>
+                Merge sort - Divides the search matter into however many sections you set in your function. The expensive part of these search algorithms are at the beginning of the process, with the division of the subject matter, and the space used. The search collisions themselves are minimized by the division of the subject matter. I find this one hard to explain without the use of javascript, so here is a simple example:
+                <br></br>
+                function mergeSort(arr)
+                <br> {
+                <br> if (arr.length
+                < 2)<br>
+                    return arr;
+                    <br> var middle = parseInt(arr.length / 2);
+                    <br> var left = arr.slice(0, middle);
+                    <br> var right = arr.slice(middle, arr.length);
+                    <br> return merge(mergeSort(left), mergeSort(right));
+                    <br> }
+                    <br> function merge(left, right)
+                    <br> {
+                    <br> var result = [];
+                    <br> while (left.length && right.length) {
+                    <br> if (left[0]
+                    <=r ight[0]) {<br>
+                        result.push(left.shift());
+                        <br> } else {
+                        <br> result.push(right.shift());
+                        <br> }
+                        <br> }
+                        <br> while (left.length)
+                        <br> result.push(left.shift());
+                        <br> while (right.length)
+                        <br> result.push(right.shift());
+                        <br> return result;
+                        <br> }
+                        <br> The log value here would represent half the length of the size of the search matter, but you can adjust this to whatever number you like, and so reduce the search collision expense. The worst case scenario for merge sort logarithm is n*log(n). To clarify, the ‘log(n)’ part of this represents by how much the log has been divided. It could be log(6) - 1/6th, or log(2) - 1/2. This is far better than the n*n worst case scenario for quick sort, when you get the wrong pivot. Merge sort is handy because it is efficient no matter what the search matter is.
+                        <br></br>
+                        Bubble Sort - The worst case for the Big O search collision logarithm here is n. This method is only one loop deep in complexity, hence the O(n) notation, comparing each item to it’s neighbor. Javascript example:
+                        <br></br>
+                        Array.prototype.bubblesort = function() {
+                        <br> var done = false;
+                        <br> while (! done) {
+                        <br> done = true;
+                        <br> for (var i = 1; i
+                        < this.length; i++) {<br>
+                            if (this[i - 1] > this[i]) {
+                            <br> done = false;
+                            <br> var tmp = this[i - 1];
+                            <br> this[i - 1] = this[i];
+                            <br> this[i] = tmp;
+                            <br> }
+                            <br> }
+                            <br> }
+                            <br> return this;
+                            <br> }
+                            <br> Bubble sort is fine for small sets of data, where you do not have to incur the up front cost of space by splitting up your search material.
+                            <br></br>
+                            Insertion sort - very similar to bubble sort, except that it carries the same element along until it has reached it’s highest point. It also has the linear complexity of n. Not practical for large sets of data, good for practice when you are a beginner learning to code!
+                            <br></br>
+                            Bogo sort - I’m just throwing this in here for the sake of completeness. And to break up the heaviness of what just happened up there. Never do this. Or if you do, make sure that you have a good movie to watch while your poor laptop completes your algorithm. If you were thinking in javascript, you would use Math.random for both comparison points. If you were thinking about sorting books, cards, dvds (yes, they still exist) - throw them all around a big room, stir them around. Use a fishing pole with a claw on the end to fish out whatever you can grab that has air contact with the top. Check out what you grabbed. Probably throw it back. This is bogo sort.
+                            <br></br>
+                            Thoughts to walk away with - your search through data will be expensive one way or the other. You can pay for this at the beginning, with space by splitting up your search material - the payoff is low search-collision overhead. With linear complexity, no upfront overheads, just jump straight into the search. Works well for smaller sets of data, where you don’t want to use up space on searching. </p>
+            <h3>Blog post 2 - Call/Apply/Bind?? They all affect ‘this’, why one over the other?? </h3>
+            <p>OK. So you’ve got your algorithms down. You love the Coderbyte challenges and you probably know the difference between slice() and splice() without having to google it.
+                <br></br>
+                All three of these native methods are used on functions, and they are all used to change the ownership of the ‘this’ attached on the chosen function. In javascript, function bodies can be passed around/duplicated and so ‘owned’ by other functions/objects.
+                <br></br>
+                I find it easier to think of how you would actually use this in development. Practical examples can be seen as buttons on the pages of user accounts, maybe pages created for online shopping or an online game. Online games are good examples of where the program must create each player it’s own buttons assigned to them, so that moves are assigned to the correct player. Same page and buttons presented on the DOM for each player, different assignment for points on the backend.
+                <br></br>
+                The simplest view of bind(), call() and apply() is to think of them as a hierarchy. Once you get past understanding bind(), the other two follow easily:
+                <br></br>
+                bind() - This is the runt of the pack. You can use this on an anonymous function and the object you want to attach. You would probably use while creating a DOM page markup button, or other receiver object. Commonly made mistakes using this, or forgetting to use bind() at all, result in the ‘this’ within the function pointing towards the DOM window instead of the user who should be attached to the button used. This method binds the first parameter inserted to the ‘this’ ownership, the result returned from the bound function will be the function body, stored in a variable and ready to be called. The remainder of the completed parameters input will be bound to the new function created. If you were to call the new function, these bound values would be used. In other words, you can use bind() to create a partial application function, a closure, which helps you narrow down a broader function to a more dedicated purpose. Javascript example:
+                <br></br>
+                function greet(gender, first, last){
+                <br> this.first = first;
+                <br> this.last = last;
+                <br> if (gender === "male"){
+                <br> return ("Hi Mr. "+ this.last);
+                <br> } if (gender === "female"){
+                <br> return ("Hi Ms. " + this.last);
+                <br> }
+                <br> }
+                <br> var greetFemale = greet.bind(greet, "female");
+                <br> greetFemale("nadia", “smith”); // “Hi Ms. smith”
+                <br></br>
+                jQuery example:
+                <br></br>
+                $ ("button").click (user.clickHandler.bind (user));
+                <br></br>
+                If you did not use bind in the jQuery, your clickHandler would send the wrong data back to be used in its’ function.
+                <br></br>
+                call() - Identical to bind(), except that call() invokes the function that it is used on immediately.
+                <br></br>
+                apply() - In addition to the functionality of call(), apply() allows you to give it an array of arguments instead of a list. This seems like a small difference, but in Javascript arrays are very easy to manipulate, meaning that apply() is more flexible in practice. </p>
+            <h3>Blog post 3 - “use strict” </h3>
+            <p>Why does Angular need this?? And what difference does it make? What other complications are there to be considered when dealing with a program that uses strict mode?? Having put together a few apps together using Angular, I know that Angular breaks unless you implement ‘use strict’ on all modules. Need to know more!
+                <br></br>
+                My first understanding of strict mode is that it causes the module, or you can also call strict mode in a single function, to throw an error instead of simply not working as you intended. For example, if you were to try to overwrite an object property that was not available to be overwritten, object would simply keep it’s original property intact. If you were to attempt this while using strict mode, an error would be thrown and the function would halt immediately. Compared to regular mode, where the function would continue to run and give an unintended result at the end, this is a pretty big difference.
+                <br></br>
+                Javascript example:
+                <br></br>
+                "use strict";
+                <br></br>
+                // Assignment to a non-writable property
+                <br> var obj = {};
+                <br> Object.defineProperty(obj, "x", { value: 100, writable: false });
+                <br> obj.x = 99; // throws Error
+                <br> console.log(obj.x); // without strict mode, obj.x would continue to print as value ‘100’. With
+                <br> strict mode in use, the function would not make it as far as the
+                <br> console.log because of the thrown error.
+                <br></br>
+                So how does this affect our programming in practice? You cannot mix strict mode functions/modules with non-strict!! Not without a great deal of pain in refactoring anyway!
+                <br></br>
+                The first thing that jumps to my mind is that this means you cannot mix jQuery with Angular. Say that you just want to throw a random jQuery button that you will not use for the rest of the program into your Angular app, without a new click function into your controller. Bad idea.
+                <br></br>
+                So why does Angular use strict mode? It makes the Javascript that you write more secure. So that you cannot think that you are creating or storing information in a place when in fact you are not. For example, you could just be changing global variables without realizing! It’s one more way of double checking, on top of any tests written for your functions to pass. There is far less room for error when developing websites that take in user information, etc. It seems to me to be a smarter move to use strict mode while developing, much harder to miss little syntax errors that can have a big impact on the larger picture of what you are putting together.
+                <br></br>
+                Side notes with strict mode that are easy to forget, when mystery errors pop up, remember these:
+                <br> - Strict mode does not allow octal numbers or escape characters, so 010 as an assigned value would throw an error.
+                <br> - You cannot change the value of a property from outside of the scope it was called from. This will be the one to cause the most problems. Your functions must correctly assign values! </p>
+            <h3>Blog post 4 - Asynchronous functions. Factoring and refactoring is the only way to get fluent! </h3>
+            <p>Asynchrony is very easy to understand in theory! You have a two-stage function. For stage two to be reached, stage one must have completed. Stage two probably requires the end result of stage one to produce the correct output. Got it.
+                <br></br>
+                Do not forget -
+                <br> Synchronous = Blocking - Halts all connections while the function completes
+                <br> Asynchronous = Non Blocking - Multi tasks your javascript functions while the I/O runs in the background
+                <br></br>
+                Examples of transforming async to sync and vice versa coming soon…. This post is still a work in progress! </p>
+        </div>
+    </div>
+</body>
+
+</html>

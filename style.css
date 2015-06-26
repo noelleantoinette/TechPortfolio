@@ -1,0 +1,48 @@
+body {
+    font: 14px "Baskerville";
+    font-size: 19px;
+    background-color: #E5E3E8;
+}
+
+a {
+    color: black;
+}
+
+h2,
+h3 {
+    color: #452504;
+}
+
+.blogoutline {
+    border-style: solid;
+    border-width: 4px;
+    border-color: #E5E4E2;
+    padding: 2%;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.portfoliooutline {
+    margin: 1%;
+    padding: 2%;
+    text-align: center;
+    top: 0;
+    background-color: white;
+}
+
+.projectbox {
+    padding-top: 0px;
+    margin-top: 0px;
+    width: 45%;
+    height: 267px;
+    padding: 0% 2% 2% 2%;
+    border-style: solid;
+    border-color: #E5E4E2;
+    display: inline-block;
+    vertical-align: text-top;
+    overflow: auto;
+}
+
+.projects {
+    text-align: center;
+}
